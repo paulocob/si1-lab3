@@ -1,0 +1,46 @@
+@(title: String)(content: Html)(js: String)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/animate.css")">
+            <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta charset="utf-8">
+        <title>Your page title here :)</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+            <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+            <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/normalize.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/skeleton.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/noty/packaged/jquery.noty.packaged.min.js")" type="text/javascript"></script>
+        @if(!(js == null)) {
+            <script src="@routes.Assets.at("javascripts/" + js) "type="text/javascript"></script>
+        }
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        <link rel="stylesheet" href="http://getskeleton.com/css/custom.css">
+    </head>
+    <body>
+    	<style type="text/css">
+    	body{background: #fff url("@routes.Assets.at("images/inicial.jpg")");}
+    	</style>
+    
+    @content
+    </body>
+</html>

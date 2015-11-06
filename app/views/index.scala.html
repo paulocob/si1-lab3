@@ -1,0 +1,76 @@
+@(anuncios: java.util.List[models.Anuncio])(numAnuncios: Int)
+
+@main("The Good Music Search") {
+
+    <div class="container" style="margin-top : 5 %">
+        @helper.form(action=routes.Application.fazerBusca()) {<b>
+            <div class="row">
+                <div class="eight columns">
+                    <h1>The Good Music Search :D</h1>
+                </div>
+            </div>
+            <div class="row">
+            <script type="text/javascript">
+				function Nova()
+				{
+				location.href="@{routes.Application.criarAnuncio()}"
+				}
+			</script>
+            <input class="button-primary" type="button" value="Criar um novo anúncio" onClick = "Nova()">
+                
+            </div>
+            <div class="row">
+                <div class="seven columns">
+                    <input class="u-full-width" type="search" placeholder=" procure por: estilos musicais, instrumentos, entre outros." id="buscaInput" name="busca">
+                </div>
+            </div>
+            
+            
+        }
+        @for(anuncio <- anuncios) {
+            <hr>
+            <div class="row code">
+                <div class="anuncios prettyprint">
+                    <a href="@{routes.Application.visitarAnuncio(anuncio.getTitulo + "+" + anuncio.getData)}">
+                        <h5>@anuncio.getTitulo @if(anuncio.getAnunciante.getOcasional()) {
+                            --Procuro Ocasional
+                        } else {
+                            --Procuro Banda
+                        } </h5><br>                    </a>
+
+                    @anuncio.getDescricao <br>
+                    @anuncio.getContatos.get("fb")<br>
+                    @anuncio.getContatos.get("email")<br>
+                    @anuncio.getAnunciante.getCidade, @anuncio.getAnunciante.getBairro <br>
+                    <div class="row" style="margin-top : 3 %">
+                        <div class="three columns">
+                        Estilos que gosta:
+                            <ul>
+                            @for(gosta <- anuncio.getAnunciante.getGosta) {
+                                <li>@gosta</li>
+                            }
+                            </ul>
+                        
+                        Estilos que nao gosta:
+                            <ul>
+                            @for(desgosta <- anuncio.getAnunciante.getDesgosta) {
+                                <li>@desgosta</li>
+                            }
+                            </ul>
+                        
+                        Toca:
+                            <ul>
+                            @for(instrumentos <- anuncio.getAnunciante.getInstrumentos) {
+                                <li>@instrumentos</li>
+                            }
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    @anuncio.getData <br>
+                </div>
+            </div>
+        }
+    </div>
+</b>
+}(null)

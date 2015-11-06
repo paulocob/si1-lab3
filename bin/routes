@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                               controllers.Application.verAnuncios()
+POST        /                               controllers.Application.fazerBusca()
+
+POST        /criarPergunta                  controllers.Application.criarPergunta(titulo: String)
+POST        /responderOuApagarPergunta              controllers.Application.responderOuApagarPergunta(titulo: String, index: Int)
+
+POST        /contabilizarFeedback           controllers.Application.contabilizarFeedback()
+
+GET         /criarAnuncio                   controllers.Application.criarAnuncio()
+POST        /criarAnuncio                   controllers.Application.novoAnuncio()
+
+GET         /visitarAnuncio/:anuncio        controllers.Application.visitarAnuncio(anuncio: String)
+POST        /deletarAnuncio/:titulo         controllers.Application.deletarAnuncio(titulo: String)
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                   controllers.Assets.at(path="/public", file)

@@ -1,0 +1,32 @@
+@(message: String)
+
+@main("The Good Music Search") {
+    <div class="container" style="margin-top: 5%">
+    @helper.form(action=routes.Application.contabilizarFeedback()) {
+        <div class="row">
+            <div class="six columns">
+                <div class="u-pull-left">
+                    <label class="banda">
+                        <input type="radio" name="ok" value="true" id="ok">
+                        <span class="label-body">Consegui encontrar :)</span>
+                    </label>
+                </div>
+
+                <div class="u-pull-right">
+                    <label class="ocasional">
+                        <input type="radio" name="nao" value="false" id="nao">
+                        <span class="label-body">Nao encontrei :/</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="four columns">
+                <div class="u-pull-right">
+                    <input class="button-primary" type="submit" value="Responder" id="resposta">
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+}(null)

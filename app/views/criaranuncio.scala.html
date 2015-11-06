@@ -1,0 +1,67 @@
+@(message: String)
+
+@main("The Good Music Search") {
+    <div class="container" style="margin-top: 5%">
+        <h2>Crie um novo Anúncio:</h2>
+        @helper.form(action=routes.Application.novoAnuncio(), 'onsubmit -> "return validarFormulario();") {
+            <div class="row">
+                <div class="four columns">
+                    <label for="tituloInput">Título</label>
+                    <input class="u-full-width" type="text" placeholder="" id="tituloInput" name="titulo" required>
+                
+                    <label for="codigoInput">Código de criação</label>
+                    <input class="u-full-width" type="text" placeholder="" id="codigoInput" name="codigo" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="descricaoInput">Descrição</label>
+                    <textarea class="u-full-width" id="descricaoInput" name="descricao" style="resize:vertical" required></textarea>
+                    
+                        <label for="instrumentosInput">Instrumentos que toco</label>
+                        <input class="u-full-width" type="text" id="instrumentosInput" name="instrumentos" required>
+                    
+                    
+                    
+                    	<label for="gostosInput">Estilos que curto</label>
+                        <input class="u-full-width" type="text" id="gostosInput" name="gosta" placeholder="folk,funk,samba,...">
+                    	<label for="desgostosInput">Estilos que nao curto</label>
+                        <input class="u-full-width" type="text" id="desgostosInput" name="desgosta" placeholder="xaxado,rock...">
+                        <label for="cidadeInput">Cidade</label>
+                        <input class="u-full-width" type="text" placeholder="" id="cidadeInput" name="cidade" required>
+                        <label for="bairroInput">Bairro</label>
+                        <input class="u-full-width" type="text" placeholder="" id="bairroInput" name="bairro" required>
+                        <label for="emailInput">Email</label>
+                        <input class="u-full-width" type="email" placeholder="" id="emailInput" name="email">
+                        <label for="fbInput">Facebook</label>
+                        <input class="u-full-width" type="url" placeholder="http://" id="fbInput" name="fb">
+                    
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="tencolumns">
+                    <div class="ten columns">
+                        <label class="banda">
+                            <input type="radio" name="ocasional" value="false" id="banda">
+                            <span class="label-body">Procuro uma banda</span>
+                        </label>
+                    
+                        <label class="ocasional">
+                            <input type="radio" name="ocasional" value="true" id="ocasional">
+                            <span class="label-body">Procuro Ocasional</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ten columns"></div>
+                <div class="four columns">
+                    <div class="u-pull-right">
+                        <input class="button-primary" type="submit" value="Criar anúncio" id="criarBotao">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}("formulario.js")
